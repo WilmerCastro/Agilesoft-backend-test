@@ -37,9 +37,9 @@ Crea un archivo .env en la raíz del proyecto.
 API_PORT=3000
 DB_HOST=localhost
 DB_PORT=5432
-DB_USERNAME=test_user
-DB_PASSWORD=test_psw
-DB_DATABASE=agiledb
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_DATABASE=postgres
 ```
 
 #### Ejecución
