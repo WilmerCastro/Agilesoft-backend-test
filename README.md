@@ -27,7 +27,7 @@ Antes de iniciar, asegúrate de tener los siguientes componentes instalados en t
 Comienza clonando el repositorio en tu estación de trabajo:
 
 ```sh
-git clone 
+git clone https://github.com/WilmerCastro/Agilesoft-backend-test.git
 
 
 #### Configurar variables de entorno
