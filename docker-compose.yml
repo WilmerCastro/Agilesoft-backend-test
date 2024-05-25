@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+    db:
+        container_name: db
+        image: postgres:14-alpine
+        ports:
+            - '5432:5432'
+        environment:
+            - PGDATA=/var/pgdata
+            - POSTGRES_USER=${DB_USERNAME}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+            - POSTGRES_DB=${DB_DATABASE}
+        volumes:
+            - 'pgdata:/var/pgdata'
+    api:
+        container_name: modules
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - '3000:3000'
+        expose:
+          - '3000'
+        environment:
+            - DB_HOST=db
+            - DB_PORT=5432
+            - DB_USERNAME=${DB_USERNAME}
+            - DB_PASSWORD=${DB_PASSWORD}
+            - DB_DATABASE=${DB_DATABASE}
+            - DRIVER_RADIUS_DISTANCE=${DRIVER_RADIUS_DISTANCE}
+        depends_on:
+            - db
+volumes:
+    pgdata: {}
+
