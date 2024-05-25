@@ -7,11 +7,12 @@ services:
         ports:
             - '5432:5432'
         environment:
+            - PGDATA=/var/pgdata
             - POSTGRES_USER=${DB_USERNAME}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
             - POSTGRES_DB=${DB_DATABASE}
         volumes:
-            - pgdata:/var/lib/postgresql/data
+            - 'pgdata:/var/pgdata'
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     api:
         container_name: api
@@ -26,7 +27,6 @@ services:
             - DB_USERNAME=${DB_USERNAME}
             - DB_PASSWORD=${DB_PASSWORD}
             - DB_DATABASE=${DB_DATABASE}
-            - DRIVER_RADIUS_DISTANCE=${DRIVER_RADIUS_DISTANCE}
         depends_on:
             - db
 
