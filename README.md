@@ -34,13 +34,12 @@ git clone https://github.com/WilmerCastro/Agilesoft-backend-test.git
 
 Crea un archivo .env en la raíz del proyecto.
 
-```env
 API_PORT=3000
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=test_user
 DB_PASSWORD=test_psw
-DB_DATABASE=postgres
+DB_DATABASE=agiledb
 ```
 
 #### Ejecución
