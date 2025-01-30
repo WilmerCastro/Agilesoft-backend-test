@@ -1,39 +1,40 @@
-# Agilesoft test backend
+# Agilesoft Backend Test
 
-Este documento README proporciona instrucciones detalladas para clonar, configurar, lanzar y probar el proyecto Agilesoft, que se ha desarrollado utilizando las siguientes tecnologías:
+This README document provides detailed instructions for cloning, setting up, launching, and testing the Agilesoft project, which has been developed using the following technologies:
 
-- **NestJS:** Framework de JavaScript diseñado para la creación de aplicaciones de servidor escalables.
-- **TypeORM:** ORM que facilita la interacción con bases de datos SQL mediante TypeScript.
-- **PostgreSQL:** Sistema de gestión de bases de datos relacional.
-- **Docker:** Solución para la virtualización de aplicaciones a nivel de sistema operativo.
-- **Docker Compose:** Herramienta para definir y gestionar aplicaciones compuestas por múltiples contenedores.
-- **Clean Architecture:** Método de diseño que organiza el código en capas claras y definidas, mejorando la modularidad, flexibilidad y capacidad de prueba.
+- **NestJS:** A JavaScript framework designed for building scalable server-side applications.
+- **TypeORM:** An ORM that facilitates interaction with SQL databases using TypeScript.
+- **PostgreSQL:** A relational database management system.
+- **Docker:** A solution for operating system-level application virtualization.
+- **Docker Compose:** A tool for defining and managing multi-container applications.
+- **Clean Architecture:** A design method that organizes code into clear and well-defined layers, improving modularity, flexibility, and testability.
 
-## Configuración y ejecución
+## Setup and Execution
 
-### Requisitos previos
+### Prerequisites
 
-Antes de iniciar, asegúrate de tener los siguientes componentes instalados en tu estación de trabajo:
+Before starting, ensure that the following components are installed on your workstation:
 
 - [NodeJS](https://nodejs.org/) v16.x
 - PostgreSQL
 - Docker
-- Docker Compose (Para utilizar el archivo `docker-compose.yml` proporcionado.)
+- Docker Compose (To use the provided `docker-compose.yml` file.)
 
-### Inicialización
+### Initialization
 
-#### Clonación del repositorio
+#### Clone the Repository
 
-Comienza clonando el repositorio en tu estación de trabajo:
+Start by cloning the repository onto your workstation:
 
 ```sh
 git clone https://github.com/WilmerCastro/Agilesoft-backend-test.git
+```
 
+#### Configure Environment Variables
 
-#### Configurar variables de entorno
+Create a `.env` file in the project root directory and include the following configurations:
 
-Crea un archivo .env en la raíz del proyecto.
-
+```sh
 API_PORT=3000
 DB_HOST=localhost
 DB_PORT=5432
@@ -42,42 +43,37 @@ DB_PASSWORD=postgres
 DB_DATABASE=postgres
 ```
 
-#### Ejecución
+#### Execution
 
-Ejecución del proyecto
-Una vez configurado el archivo .env, puedes lanzar el servicio usando Docker Compose con el siguiente comando:
-
-
+Once the `.env` file is configured, you can launch the service using Docker Compose with the following command:
 
 ```sh
 docker-compose up
 ```
 
-Este comando tiene varias acciones integradas, incluyendo:
+This command performs several actions, including:
 
-- **Creación de Contenedores**
+- **Container Creation**
+- **Database Migrations Execution**
+- **Initial Data Seeding**
 
-- **Ejecución de Migraciones** 
+> The service will be available at <http://localhost:3000/api/>
 
-- **Carga de Datos Iniciales**
+### Authentication
 
-> El servicio estará disponible en <http://localhost:3000/api/>
+You only need to create a user (see Swagger) and then log in to obtain an authentication token. With this token, you can access other protected endpoints.
 
-### Autenticación
-Solo debe crear un usuario (ver swagger) y luego iniciar sesión para obtener el token de autenticación. Con este token, puede acceder a los otros endpoints protegidos.
+### Documentation
 
+For effective API integration and usage, complete documentation is provided via Swagger within the project. This documentation is available at:
 
-### Documentación
-
-Para una integración y uso efectivos del API, se proporciona documentación completa en Swagger dentro del proyecto. Esta documentación está disponible en:
 ```url
 http://localhost:3000/docs
 ```
 
-### Pruebas
+### Testing
 
-Para ejecutar las pruebas, utilice el siguiente comando:
+To run tests, use the following command:
 
 ```sh
 npm run test
-```
