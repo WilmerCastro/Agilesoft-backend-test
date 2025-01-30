@@ -1,4 +1,4 @@
-# Agilesoft Backend Test
+# Agilesoft Backend
 
 This README document provides detailed instructions for cloning, setting up, launching, and testing the Agilesoft project, which has been developed using the following technologies:
 
